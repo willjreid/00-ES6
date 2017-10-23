@@ -22,10 +22,10 @@ Follow these instructions carefully and in order.
 
 ##### Investigate how `let` and `const` are now used in the code. Where did you need to convert `const` into `let` to make the code work? Can you identify any patterns/similarities?
 
-(Put your answer here)
+I needed to return `const` items back to `let` in loops and in globally defined variables that needed to be updated based on subsequent code logic such as the counter of clicks. `Const` resists reassignment and updates, and must be defined as it is declared.  
 
 ---
 
 ##### How did it go with making the adaptation from concatenations to template literal notation? Do you think you'll mostly use template literal notation from now on?
 
-(Put your answer here)
+It is cleaner to use template notation rather than all the single quotes and plus signs of concatenation.  I had never used the backtick symbol before, so I may need some physical repetition to get the character in my usual rotation.
