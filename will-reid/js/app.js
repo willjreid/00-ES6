@@ -4,15 +4,15 @@ let names = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'ch
 
 let allProducts = [];
 let container = document.getElementById('image_container');
-let viewed = [];
-let labels = [];
-let pics = [document.getElementById('left'),
+const viewed = [];
+const labels = [];
+const pics = [document.getElementById('left'),
                 document.getElementById('center'), //eslint-disable-line
                 document.getElementById('right')]; //eslint-disable-line
-let list = document.getElementById('productlist');
+const list = document.getElementById('productlist');
 let totalClicks = 0;
-let views = [];
-let votes = [];
+const views = [];
+const votes = [];
 
 function Product(name) {
   this.name = name;
@@ -29,19 +29,19 @@ function makeRandom() {
 function displayPics(){
   // roll for three random indexes
   while(viewed.length < 6){
-    let rando = makeRandom();
+    const rando = makeRandom();
     while(!viewed.includes(rando)){
       viewed.push(rando);
     }
   }
 
-  // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the letiable declaration from `let to `let`.
-  // WILL's COMMENT: rando is defined on line 32 as local to the function block starting on line 29. You could call the console log within the function, but since it is referencing a variable/letiable item within a function, it cannot be referenced outside that function.  I have deleted the contents of line 37.
+  // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the constiable declaration from `const to `const`.
+  // WILL's COMMENT: rando is defined on line 32 as local to the function block starting on line 29. You could call the console log within the function, but since it is referencing a variable/letiable item within a function, it cannot be referenced outside that function.  I have removed the contents of line 37.
   console.log(viewed)
 
   // To the DOM and beyond!
   for (let i = 0; i < 3; i++){
-    let temp = viewed.shift();
+    const temp = viewed.shift();
     pics[i].src = allProducts[temp].path;
     pics[i].id = allProducts[temp].name;
     allProducts[temp].views += 1;
@@ -76,7 +76,7 @@ function handleClick(event) {
 
 function showList() {
   for(let i = 0; i < allProducts.length; i++) {
-    let liEl = document.createElement('li');
+    const liEl = document.createElement('li');
     liEl.textContent = allProducts[i].name + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views';
     list.appendChild(liEl);
   }
@@ -92,7 +92,7 @@ function makeChartData(){
 
 function makeChart(){
   makeChartData();
-  let ctx = document.getElementById('chartypants').getContext('2d');
+  const ctx = document.getElementById('chartypants').getContext('2d');
   new Chart(ctx, {
     type: 'bar',
     data: {
